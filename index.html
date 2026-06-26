@@ -579,7 +579,7 @@
     <p class="reserva-note fade-in">Sem cobrança agora. Nossa equipe entrará em contato para confirmar.</p>
     <div class="reserva-success" id="reserva-success">
       ✦ Reserva recebida!<br>
-      <span style="font-size:0.9rem;color:var(--muted);font-family:'DM Sans';font-style:normal;">Entraremos em contato em breve para finalizar seu pedido.</span>
+      <span style="font-size:0.9rem;color:var(--muted);font-family:'DM Sans';font-style:normal;">O download do seu resumo começará em instantes. Entraremos em contato em breve.</span>
     </div>
   </div>
 </section>
@@ -680,6 +680,26 @@
     document.getElementById('reserva-form').style.display = 'none';
     document.querySelector('.reserva-note').style.display = 'none';
     document.getElementById('reserva-success').style.display = 'block';
+
+    // Download automático do resumo correspondente
+    const pdfs = {
+      'kit':    './resumo_livro1-CRONICAS%20DE%20UM%20CAMPEAO.pdf',
+      'livro1': './resumo_livro1-CRONICAS%20DE%20UM%20CAMPEAO.pdf',
+      'livro2': './resumo_livro2%20-%20A%20MENTE%20E%20A%20CAUSA.pdf',
+      'livro3': './resumo_livro3%20-%20A%20VIDA%20SEM%20RASCUNHO.pdf',
+    };
+    const url = pdfs[opcao];
+    if (url) {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = url.split('/').pop();
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, 800);
+    }
   }
 
   async function submitModalLead() {
