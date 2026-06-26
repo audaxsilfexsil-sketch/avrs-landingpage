@@ -75,40 +75,45 @@
   .hero-subtitle { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 3.5rem; }
 
   /* TRÊS CAPAS */
-  .hero-books { display: flex; gap: 2rem; justify-content: center; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; padding-top: 30px; overflow: visible; }
-  .book-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-  .book-wrap:not(.book-wrap-center):first-child { transform: rotate(-2deg); }
-  .book-wrap-center { transform: translateY(-20px); position: relative; }
-  .book-wrap:not(.book-wrap-center):last-child { transform: rotate(2deg); }
+  .hero-books { display: flex; gap: 2.5rem; justify-content: center; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; padding-top: 40px; overflow: visible; perspective: 800px; }
+  .book-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+    transition: transform 0.4s ease;
+  }
+  .book-wrap:first-child { transform: rotate(-4deg) translateY(10px); }
+  .book-wrap-center { transform: translateY(-16px); position: relative; z-index: 2; }
+  .book-wrap:last-child { transform: rotate(4deg) translateY(10px); }
+  .book-wrap:hover { transform: translateY(-8px) rotate(0deg) !important; }
 
   .book-ph {
-    width: 170px; aspect-ratio: 2/3;
+    width: 160px; aspect-ratio: 2/3;
     border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--dark3) 0%, #1a1710 100%);
+    background: linear-gradient(160deg, #1e1b14 0%, #141210 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 1.5rem 1rem; gap: 0.8rem; position: relative;
-    box-shadow: 12px 16px 48px rgba(0,0,0,0.6), 0 0 60px rgba(212,184,122,0.06);
-    border-radius: 2px; transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 16px 24px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,184,122,0.05);
+    border-radius: 2px; transition: box-shadow 0.4s ease;
   }
-  .book-wrap:nth-child(2) .book-ph {
-    width: 195px;
-    box-shadow: 16px 20px 60px rgba(0,0,0,0.7), 0 0 80px rgba(212,184,122,0.1);
-  }
+  .book-wrap-center .book-ph { width: 185px; }
   .book-ph::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 10px;
-    background: linear-gradient(to right, rgba(212,184,122,0.18), transparent);
-    border-right: 1px solid var(--border);
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+    background: linear-gradient(to right, rgba(212,184,122,0.2), transparent);
+    border-right: 1px solid rgba(212,184,122,0.15);
   }
-  .book-wrap:hover .book-ph { transform: translateY(-6px); box-shadow: 16px 24px 64px rgba(0,0,0,0.75); }
+  .book-ph::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+  }
 
   .book-img {
-    width: 170px; height: auto; display: block; border-radius: 2px;
-    border: 1px solid var(--border);
-    box-shadow: 12px 16px 48px rgba(0,0,0,0.6);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 160px; height: auto; display: block; border-radius: 2px;
+    border: 1px solid rgba(212,184,122,0.15);
+    box-shadow: 16px 24px 60px rgba(0,0,0,0.75), -4px 0 20px rgba(0,0,0,0.5);
+    transition: box-shadow 0.4s ease;
   }
-  .book-wrap-center .book-img { width: 195px !important; box-shadow: 16px 20px 60px rgba(0,0,0,0.7) !important; }
-  .book-wrap:hover .book-img { transform: translateY(-6px); box-shadow: 16px 24px 64px rgba(0,0,0,0.8); }
+  .book-wrap-center .book-img { width: 185px; box-shadow: 20px 30px 70px rgba(0,0,0,0.85), 0 0 60px rgba(212,184,122,0.08); }
+  .book-wrap:hover .book-img { box-shadow: 20px 32px 80px rgba(0,0,0,0.9), 0 0 80px rgba(212,184,122,0.12); }
 
   .book-num { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
   .book-title-t { font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; color: var(--gold2); text-align: center; line-height: 1.3; }
@@ -178,11 +183,41 @@
   .trilogia-inner { max-width: 1100px; margin: 0 auto; }
   .trilogia-header { text-align: center; margin-bottom: 5rem; }
   .livros-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); }
-  .livro-card { background: var(--dark2); padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; transition: background 0.3s; }
-  .livro-card:hover { background: var(--dark3); }
-  .livro-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(212,184,122,0.12); font-weight: 300; line-height: 1; align-self: flex-end; }
-  .livro-img-wrap { display: flex; justify-content: center; }
-  .livro-cover { width: 130px; height: auto; display: block; border: 1px solid var(--border); box-shadow: 8px 12px 40px rgba(0,0,0,0.6); border-radius: 2px; margin: 0 auto; }
+  .livro-card {
+    background: var(--dark2); padding: 2rem 1.2rem;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    transition: background 0.4s, box-shadow 0.4s;
+    position: relative; overflow: hidden;
+  }
+  .livro-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .livro-card:hover { background: var(--dark3); box-shadow: inset 0 0 60px rgba(212,184,122,0.03); }
+  .livro-card:hover::before { opacity: 1; }
+  .livro-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem; color: rgba(212,184,122,0.55); font-weight: 300; line-height: 1;
+    align-self: flex-end; letter-spacing: -0.02em;
+    text-shadow: 0 0 30px rgba(212,184,122,0.3);
+    transition: color 0.4s, text-shadow 0.4s;
+  }
+  .livro-card:hover .livro-num {
+    color: rgba(212,184,122,0.8);
+    text-shadow: 0 0 50px rgba(212,184,122,0.45);
+  }
+  .livro-img-wrap {
+    display: flex; justify-content: center; margin: 0.8rem 0;
+    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.7));
+    transition: filter 0.4s, transform 0.4s;
+    width: 100%;
+  }
+  .livro-card:hover .livro-img-wrap {
+    filter: drop-shadow(0 16px 40px rgba(0,0,0,0.85)) drop-shadow(0 0 20px rgba(212,184,122,0.08));
+    transform: translateY(-4px);
+  }
+  .livro-cover { width: 92%; max-width: 280px; height: auto; display: block; border: 1px solid rgba(212,184,122,0.2); box-shadow: 8px 16px 48px rgba(0,0,0,0.75), -3px 0 12px rgba(0,0,0,0.4); border-radius: 2px; margin: 0 auto; }
   .livro-cover-ph {
     width: 140px; aspect-ratio: 2/3; border: 1px solid var(--border);
     background: linear-gradient(135deg, var(--dark3) 0%, #1a1710 100%);
@@ -193,16 +228,16 @@
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
     background: linear-gradient(to right, rgba(212,184,122,0.15), transparent); border-right: 1px solid var(--border);
   }
-  .livro-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.2rem 0.6rem; align-self: flex-start; }
-  .livro-movimento { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
-  .livro-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; line-height: 1.25; color: var(--cream); }
-  .livro-desc { font-size: 0.88rem; line-height: 1.75; color: rgba(245,240,232,0.6); }
+  .livro-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.25rem 0.8rem; align-self: flex-start; background: rgba(212,184,122,0.04); }
+  .livro-movimento { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+  .livro-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; line-height: 1.25; color: var(--cream); }
+  .livro-desc { font-size: 0.82rem; line-height: 1.7; color: rgba(245,240,232,0.6); }
   .livro-pergunta {
-    font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic;
-    color: var(--gold2); border-left: 2px solid var(--border); padding-left: 1rem; line-height: 1.6; margin-top: auto;
+    font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; font-style: italic;
+    color: var(--gold2); border-left: 2px solid var(--border); padding-left: 0.8rem; line-height: 1.6; margin-top: auto;
   }
-  .livro-itens { display: flex; flex-direction: column; gap: 0.35rem; }
-  .livro-itens span { font-size: 0.78rem; color: rgba(245,240,232,0.55); display: block; }
+  .livro-itens { display: flex; flex-direction: column; gap: 0.3rem; }
+  .livro-itens span { font-size: 0.74rem; color: rgba(245,240,232,0.55); display: block; }
   .livro-itens span::before { content: '→ '; color: var(--gold); opacity: 0.6; }
 
   /* MAPA / ECOSSISTEMA */
@@ -353,7 +388,6 @@
       </div>
 
       <div class="book-wrap book-wrap-center">
-        <div class="book-badge-dest">Trilogia</div>
         <img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp" alt="A Mente É a Causa" class="book-img">
         <span class="book-label">A Reconstrução</span>
       </div>
@@ -456,22 +490,6 @@
   </div>
 </section>
 
-<!-- MAPA DIAGRAMADO -->
-<section class="imagem-section darker">
-  <div class="imagem-inner">
-    <div class="fade-in" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;"><span style="display:block;width:30px;height:1px;background:var(--gold);"></span>O mapa da jornada</div>
-      <h2 class="section-title">Do ponto de partida<br>ao resultado da transformação</h2>
-      <p class="section-body" style="max-width:580px;margin:0 auto;text-align:center;">
-        O ser desperta. A mente é reconstruída. O sistema sustenta. A vida externa é apenas o reflexo da construção interna.
-      </p>
-    </div>
-    <img src="/mnt/user-data/uploads/MAPA_DIAGRAMADO_DA_TRILOGIA_DA_TRANSFORMAÇÃO.png"
-         alt="Mapa Diagramado da Trilogia da Transformação"
-         class="imagem-img fade-in">
-  </div>
-</section>
-
 <!-- MÉTODO AVR-S -->
 <section class="metodo">
   <div class="metodo-inner">
@@ -501,23 +519,6 @@
         <p class="metodo-desc">O padrão que se repete. Você vive o que repete — e repete o que nunca questionou.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ECOSSISTEMA -->
-<section class="imagem-section darker">
-  <div class="imagem-inner">
-    <div class="fade-in" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;"><span style="display:block;width:30px;height:1px;background:var(--gold);"></span>O Ecossistema</div>
-      <h2 class="section-title">O livro é o ponto de entrada.<br>O método é o destino.</h2>
-      <p class="section-body" style="max-width:580px;margin:0 auto;text-align:center;">
-        Despertar → Reconstruir → Sustentar → Formação Completa → Liderança, App AVR–S e Legado.
-        Uma jornada que não termina — o ciclo que não para.
-      </p>
-    </div>
-    <img src="/mnt/user-data/uploads/Ecossistema_da_transformação_em_detalhes.png"
-         alt="Ecossistema da Transformação"
-         class="imagem-img fade-in" style="max-width:500px;">
   </div>
 </section>
 
