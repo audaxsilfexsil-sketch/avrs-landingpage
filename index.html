@@ -77,9 +77,9 @@
   /* TRÊS CAPAS */
   .hero-books { display: flex; gap: 2rem; justify-content: center; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; padding-top: 30px; overflow: visible; }
   .book-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-  .book-wrap:nth-child(1) { transform: rotate(-3deg); }
-  .book-wrap:nth-child(2) { transform: translateY(-20px); }
-  .book-wrap:nth-child(3) { transform: rotate(3deg); }
+  .book-wrap:not(.book-wrap-center):first-child { transform: rotate(-2deg); }
+  .book-wrap-center { transform: translateY(-20px); position: relative; }
+  .book-wrap:not(.book-wrap-center):last-child { transform: rotate(2deg); }
 
   .book-ph {
     width: 170px; aspect-ratio: 2/3;
@@ -107,7 +107,7 @@
     box-shadow: 12px 16px 48px rgba(0,0,0,0.6);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-  .book-wrap:nth-child(2) .book-img { width: 195px; box-shadow: 16px 20px 60px rgba(0,0,0,0.7); }
+  .book-wrap-center .book-img { width: 195px !important; box-shadow: 16px 20px 60px rgba(0,0,0,0.7) !important; }
   .book-wrap:hover .book-img { transform: translateY(-6px); box-shadow: 16px 24px 64px rgba(0,0,0,0.8); }
 
   .book-num { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
@@ -182,7 +182,7 @@
   .livro-card:hover { background: var(--dark3); }
   .livro-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(212,184,122,0.12); font-weight: 300; line-height: 1; align-self: flex-end; }
   .livro-img-wrap { display: flex; justify-content: center; }
-  .livro-cover { width: 140px; height: auto; display: block; border: 1px solid var(--border); box-shadow: 8px 12px 40px rgba(0,0,0,0.6); border-radius: 2px; }
+  .livro-cover { width: 130px; height: auto; display: block; border: 1px solid var(--border); box-shadow: 8px 12px 40px rgba(0,0,0,0.6); border-radius: 2px; margin: 0 auto; }
   .livro-cover-ph {
     width: 140px; aspect-ratio: 2/3; border: 1px solid var(--border);
     background: linear-gradient(135deg, var(--dark3) 0%, #1a1710 100%);
@@ -201,8 +201,8 @@
     font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic;
     color: var(--gold2); border-left: 2px solid var(--border); padding-left: 1rem; line-height: 1.6; margin-top: auto;
   }
-  .livro-itens { display: flex; flex-direction: column; gap: 0.4rem; }
-  .livro-itens span { font-size: 0.8rem; color: rgba(245,240,232,0.55); }
+  .livro-itens { display: flex; flex-direction: column; gap: 0.35rem; }
+  .livro-itens span { font-size: 0.78rem; color: rgba(245,240,232,0.55); display: block; }
   .livro-itens span::before { content: '→ '; color: var(--gold); opacity: 0.6; }
 
   /* MAPA / ECOSSISTEMA */
@@ -347,429 +347,19 @@
 
     <div class="hero-books fade-in">
 
-      <!-- LIVRO I -->
       <div class="book-wrap">
-        <img src="./CAPA%20CRONICAS%20DE%20UM%20CAMPEAO.webp" alt="Crônicas de um Campeão" class="book-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="book-ph" style="display:none">
-          <span class="book-num">Livro I</span>
-          <div class="book-div"></div>
-          <span class="book-title-t">Crônicas de um Campeão</span>
-          <div class="book-div"></div>
-          <span class="book-by">André Fernandes</span>
-        </div>
+        <img src="./CAPA%20CRONICAS%20DE%20UM%20CAMPEAO.webp" alt="Crônicas de um Campeão" class="book-img">
         <span class="book-label">O Despertar</span>
       </div>
 
-      <!-- LIVRO II -->
-      <div class="book-wrap" style="position:relative;">
-        <div class="book-badge-dest" style="position:absolute;top:-10px;right:-10px;z-index:2;">Trilogia</div>
-        <img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp" alt="A Mente É a Causa" class="book-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="book-ph" style="display:none;width:195px;">
-          <span class="book-num">Livro II</span>
-          <div class="book-div"></div>
-          <span class="book-title-t">A Mente É a Causa.<br>A Vida É o Efeito.</span>
-          <div class="book-div"></div>
-          <span class="book-by">André Fernandes</span>
-        </div>
+      <div class="book-wrap book-wrap-center">
+        <div class="book-badge-dest">Trilogia</div>
+        <img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp" alt="A Mente É a Causa" class="book-img">
         <span class="book-label">A Reconstrução</span>
       </div>
 
-      <!-- LIVRO III -->
       <div class="book-wrap">
         <img src="./CAPA%20A%20VIDA%20SEM%20RASCUNHO.webp" alt="A Vida Sem Rascunho" class="book-img">
-        <span class="book-label">O Método</span>
-      </div>ml>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trilogia da Transformação · André Fernandes</title>
-<meta name="description" content="A Trilogia da Transformação — três livros, uma jornada. Crônicas de um Campeão, A Mente É a Causa e A Vida Sem Rascunho. Método AVR–S.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black:  #0c0b09;
-    --dark:   #141210;
-    --dark2:  #1c1a16;
-    --dark3:  #252219;
-    --gold:   #d4b87a;
-    --gold2:  #ebd49e;
-    --cream:  #f5f0e8;
-    --muted:  #7a7060;
-    --border: rgba(212,184,122,0.18);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--black); color: var(--cream);
-    font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden;
-  }
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    background-size: 200px 200px; pointer-events: none; z-index: 0; opacity: 0.6;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center;
-    background: linear-gradient(to bottom, rgba(12,11,9,0.96) 0%, transparent 100%);
-    backdrop-filter: blur(2px);
-  }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; }
-  .nav-logo em { font-style: italic; color: var(--gold2); }
-  .nav-cta {
-    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gold); border: 1px solid var(--border); padding: 0.6rem 1.5rem;
-    cursor: pointer; background: transparent; font-family: 'DM Sans', sans-serif; transition: all 0.3s;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--black); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    position: relative; padding: 9rem 3rem 6rem; overflow: visible;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,184,122,0.06) 0%, transparent 70%),
-                linear-gradient(180deg, #0c0b09 0%, #141210 100%);
-    z-index: 0;
-  }
-  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
-
-  .hero-eyebrow {
-    font-size: 0.68rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: center; gap: 1.2rem;
-  }
-  .hero-eyebrow::before, .hero-eyebrow::after { content: '◈'; color: var(--gold); opacity: 0.4; font-size: 0.5rem; }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; line-height: 1.05;
-    margin-bottom: 0.8rem; color: var(--cream);
-  }
-  .hero-title em { font-style: italic; color: var(--gold2); }
-  .hero-subtitle { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 3.5rem; }
-
-  /* TRÊS CAPAS */
-  .hero-books { display: flex; gap: 2rem; justify-content: center; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; padding-top: 30px; overflow: visible; }
-  .book-wrap { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-  .book-wrap:nth-child(1) { transform: rotate(-3deg); }
-  .book-wrap:nth-child(2) { transform: translateY(-20px); }
-  .book-wrap:nth-child(3) { transform: rotate(3deg); }
-
-  .book-ph {
-    width: 170px; aspect-ratio: 2/3;
-    border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--dark3) 0%, #1a1710 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 1.5rem 1rem; gap: 0.8rem; position: relative;
-    box-shadow: 12px 16px 48px rgba(0,0,0,0.6), 0 0 60px rgba(212,184,122,0.06);
-    border-radius: 2px; transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .book-wrap:nth-child(2) .book-ph {
-    width: 195px;
-    box-shadow: 16px 20px 60px rgba(0,0,0,0.7), 0 0 80px rgba(212,184,122,0.1);
-  }
-  .book-ph::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 10px;
-    background: linear-gradient(to right, rgba(212,184,122,0.18), transparent);
-    border-right: 1px solid var(--border);
-  }
-  .book-wrap:hover .book-ph { transform: translateY(-6px); box-shadow: 16px 24px 64px rgba(0,0,0,0.75); }
-
-  .book-img {
-    width: 170px; height: auto; display: block; border-radius: 2px;
-    border: 1px solid var(--border);
-    box-shadow: 12px 16px 48px rgba(0,0,0,0.6);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .book-wrap:nth-child(2) .book-img { width: 195px; box-shadow: 16px 20px 60px rgba(0,0,0,0.7); }
-  .book-wrap:hover .book-img { transform: translateY(-6px); box-shadow: 16px 24px 64px rgba(0,0,0,0.8); }
-
-  .book-num { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
-  .book-title-t { font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; color: var(--gold2); text-align: center; line-height: 1.3; }
-  .book-div { width: 20px; height: 1px; background: var(--gold); opacity: 0.4; }
-  .book-by { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-  .book-label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-align: center; }
-  .book-badge-dest {
-    position: absolute; top: -10px; right: -10px;
-    background: var(--gold); color: var(--black);
-    font-size: 0.5rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.5rem;
-  }
-
-  /* BOTÕES */
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--gold); color: var(--black); padding: 1rem 2.2rem;
-    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
-    position: relative; overflow: hidden; transition: all 0.3s;
-  }
-  .btn-primary::before {
-    content: ''; position: absolute; inset: 0; background: var(--gold2);
-    transform: translateX(-100%); transition: transform 0.3s;
-  }
-  .btn-primary:hover::before { transform: translateX(0); }
-  .btn-primary span { position: relative; z-index: 1; }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    border: 1px solid var(--border); color: var(--gold);
-    padding: 1rem 2.2rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; background: transparent; font-family: 'DM Sans', sans-serif; transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: var(--gold); background: rgba(212,184,122,0.06); }
-
-  /* ÂNCORA */
-  .anchor {
-    padding: 5rem 3rem; text-align: center; position: relative;
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    background: var(--dark2); overflow: hidden;
-  }
-  .anchor::before {
-    content: '"'; position: absolute; font-family: 'Cormorant Garamond', serif;
-    font-size: 20rem; color: rgba(212,184,122,0.03); top: -4rem; left: 50%;
-    transform: translateX(-50%); line-height: 1; pointer-events: none;
-  }
-  .anchor-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 300; font-style: italic;
-    color: var(--gold2); max-width: 700px; margin: 0 auto 1.5rem; line-height: 1.5; position: relative;
-  }
-  .anchor-attr { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-
-  /* SEÇÕES GENÉRICAS */
-  .section-label {
-    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.2rem; color: var(--cream);
-  }
-  .section-body { font-size: 0.97rem; line-height: 1.85; color: rgba(245,240,232,0.65); margin-bottom: 1.2rem; }
-
-  /* TRÊS LIVROS */
-  .trilogia { padding: 7rem 3rem; background: var(--black); }
-  .trilogia-inner { max-width: 1100px; margin: 0 auto; }
-  .trilogia-header { text-align: center; margin-bottom: 5rem; }
-  .livros-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); }
-  .livro-card { background: var(--dark2); padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; transition: background 0.3s; }
-  .livro-card:hover { background: var(--dark3); }
-  .livro-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(212,184,122,0.12); font-weight: 300; line-height: 1; align-self: flex-end; }
-  .livro-img-wrap { display: flex; justify-content: center; }
-  .livro-cover { width: 140px; height: auto; display: block; border: 1px solid var(--border); box-shadow: 8px 12px 40px rgba(0,0,0,0.6); border-radius: 2px; }
-  .livro-cover-ph {
-    width: 140px; aspect-ratio: 2/3; border: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--dark3) 0%, #1a1710 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 1rem; gap: 0.8rem; position: relative; box-shadow: 8px 12px 40px rgba(0,0,0,0.6); border-radius: 2px;
-  }
-  .livro-cover-ph::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
-    background: linear-gradient(to right, rgba(212,184,122,0.15), transparent); border-right: 1px solid var(--border);
-  }
-  .livro-tag { display: inline-block; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.2rem 0.6rem; align-self: flex-start; }
-  .livro-movimento { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
-  .livro-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; line-height: 1.25; color: var(--cream); }
-  .livro-desc { font-size: 0.88rem; line-height: 1.75; color: rgba(245,240,232,0.6); }
-  .livro-pergunta {
-    font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic;
-    color: var(--gold2); border-left: 2px solid var(--border); padding-left: 1rem; line-height: 1.6; margin-top: auto;
-  }
-  .livro-itens { display: flex; flex-direction: column; gap: 0.4rem; }
-  .livro-itens span { font-size: 0.8rem; color: rgba(245,240,232,0.55); }
-  .livro-itens span::before { content: '→ '; color: var(--gold); opacity: 0.6; }
-
-  /* MAPA / ECOSSISTEMA */
-  .imagem-section { padding: 7rem 3rem; border-top: 1px solid var(--border); }
-  .imagem-section.dark { background: var(--dark2); }
-  .imagem-section.darker { background: var(--black); }
-  .imagem-inner { max-width: 900px; margin: 0 auto; }
-  .imagem-img {
-    width: 100%; max-width: 700px; display: block; margin: 3rem auto 0;
-    border: 1px solid var(--border); box-shadow: 0 20px 80px rgba(0,0,0,0.5);
-  }
-
-  /* MÉTODO */
-  .metodo { padding: 7rem 3rem; background: var(--dark2); border-top: 1px solid var(--border); }
-  .metodo-inner { max-width: 1100px; margin: 0 auto; }
-  .metodo-header { text-align: center; margin-bottom: 5rem; }
-  .metodo-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
-  .metodo-item { background: var(--dark2); padding: 3rem 2rem; text-align: center; transition: background 0.3s; }
-  .metodo-item:hover { background: var(--dark3); }
-  .metodo-letter { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
-  .metodo-word { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.2rem; }
-  .metodo-desc { font-size: 0.88rem; line-height: 1.7; color: rgba(245,240,232,0.6); }
-
-  /* RESERVA */
-  .reserva { padding: 7rem 3rem; background: var(--black); border-top: 1px solid var(--border); text-align: center; }
-  .reserva-inner { max-width: 560px; margin: 0 auto; }
-  .reserva-form {
-    margin-top: 3rem; display: flex; flex-direction: column; gap: 0;
-    border: 1px solid var(--border);
-  }
-  .reserva-input {
-    background: transparent; border: none; border-bottom: 1px solid var(--border);
-    outline: none; padding: 1rem 1.5rem; color: var(--cream);
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
-  }
-  .reserva-input::placeholder { color: var(--muted); }
-  .reserva-select {
-    background: var(--dark2); border: none; border-bottom: 1px solid var(--border);
-    outline: none; padding: 1rem 1.5rem; color: var(--cream);
-    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; -webkit-appearance: none; cursor: pointer;
-  }
-  .reserva-select option { background: var(--dark2); }
-  .reserva-btn {
-    background: var(--gold); color: var(--black); border: none;
-    padding: 1.1rem 2rem; font-size: 0.8rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
-    font-family: 'DM Sans', sans-serif; transition: background 0.3s;
-  }
-  .reserva-btn:hover { background: var(--gold2); }
-  .reserva-note { font-size: 0.72rem; color: var(--muted); margin-top: 1rem; }
-  .reserva-success {
-    display: none; margin-top: 2rem;
-    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold2); line-height: 1.5;
-  }
-
-  /* FRASES */
-  .frases { padding: 6rem 3rem; background: var(--dark2); border-top: 1px solid var(--border); }
-  .frases-inner { max-width: 900px; margin: 0 auto; }
-  .frase-item { padding: 2.5rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; opacity: 0.7; transition: opacity 0.3s; }
-  .frase-item:hover { opacity: 1; }
-  .frase-livro { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
-  .frase-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.4rem); font-style: italic; line-height: 1.6; color: var(--cream); }
-
-  /* AUTOR */
-  .autor { padding: 7rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center; }
-  .autor-frame { border: 1px solid var(--border); background: var(--dark3); padding: 1.5rem; overflow: hidden; }
-  .autor-frame img { width: 100%; display: block; }
-  .autor-caption { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 1rem; text-align: center; }
-
-  /* FINAL CTA */
-  .final-cta { padding: 8rem 3rem; text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--border); }
-  .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(212,184,122,0.07) 0%, transparent 70%); }
-  .final-cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-  .final-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--cream); line-height: 1.3; margin-bottom: 1.5rem; }
-  .final-title em { color: var(--gold2); font-style: italic; }
-  .final-sub { font-size: 0.95rem; color: rgba(245,240,232,0.55); margin-bottom: 3rem; line-height: 1.7; }
-
-  /* FOOTER */
-  footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); letter-spacing: 0.15em; }
-  .footer-copy { font-size: 0.72rem; color: var(--muted); }
-  .footer-links { display: flex; gap: 2rem; }
-  .footer-links a { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
-  .footer-links a:hover { color: var(--gold); }
-
-  /* MODAL LISTA */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-  .modal-overlay.active { display: flex; }
-  .modal-box { background: var(--dark2); border: 1px solid var(--border); padding: 3.5rem; max-width: 480px; width: 90%; position: relative; text-align: center; }
-  .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; transition: color 0.3s; }
-  .modal-close:hover { color: var(--gold); }
-  .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--cream); margin-bottom: 0.5rem; }
-  .modal-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.6; }
-  .modal-success { display: none; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold2); padding: 2rem 0; }
-  .lead-form { display: flex; gap: 0; border: 1px solid var(--border); }
-  .lead-input { flex: 1; background: transparent; border: none; outline: none; padding: 1rem 1.5rem; color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; }
-  .lead-input::placeholder { color: var(--muted); }
-  .lead-btn { background: var(--gold); color: var(--black); border: none; padding: 1rem 2rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.3s; white-space: nowrap; }
-  .lead-btn:hover { background: var(--gold2); }
-
-  /* SCROLL */
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-books { gap: 1rem; }
-    .book-wrap:nth-child(1) { transform: none; }
-    .book-wrap:nth-child(2) { transform: translateY(-10px); }
-    .book-wrap:nth-child(3) { transform: none; }
-    .book-ph, .book-img { width: 120px; }
-    .book-wrap:nth-child(2) .book-ph,
-    .book-wrap:nth-child(2) .book-img { width: 145px; }
-    .livros-grid { grid-template-columns: 1fr; }
-    .metodo-grid { grid-template-columns: repeat(2,1fr); }
-    .autor { grid-template-columns: 1fr; gap: 2.5rem; padding: 5rem 1.5rem; }
-    .autor-frame { max-width: 200px; margin: 0 auto; }
-    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-    .trilogia, .metodo, .reserva, .frases, .final-cta, .imagem-section { padding: 5rem 1.5rem; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo"><em>Trilogia</em> da Transformação</div>
-  <button class="nav-cta" onclick="document.getElementById('reserva').scrollIntoView({behavior:'smooth'})">Reservar exemplares</button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-
-    <div class="hero-eyebrow fade-in">Método AVR–S · André Fernandes · Audax Consultoria</div>
-
-    <h1 class="hero-title fade-in"><em>Trilogia</em><br>da Transformação</h1>
-    <p class="hero-subtitle fade-in">Três livros · Uma jornada · Um sistema</p>
-
-    <div class="hero-books fade-in">
-
-      <!-- LIVRO I -->
-      <div class="book-wrap">
-        <img src="./CAPA%20CRONICAS%20DE%20UM%20CAMPEAO.webp" alt="Crônicas de um Campeão" class="book-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="book-ph" style="display:none">
-          <span class="book-num">Livro I</span>
-          <div class="book-div"></div>
-          <span class="book-title-t">Crônicas de um Campeão</span>
-          <div class="book-div"></div>
-          <span class="book-by">André Fernandes</span>
-        </div>
-        <span class="book-label">O Despertar</span>
-      </div>
-
-      <!-- LIVRO II -->
-      <div class="book-wrap">
-        <div class="book-badge-dest" style="position:absolute;top:-10px;right:-10px;z-index:2;">Trilogia</div>
-        <img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp" alt="A Mente É a Causa" class="book-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="book-ph" style="display:none;width:195px;">
-          <span class="book-num">Livro II</span>
-          <div class="book-div"></div>
-          <span class="book-title-t">A Mente É a Causa.<br>A Vida É o Efeito.</span>
-          <div class="book-div"></div>
-          <span class="book-by">André Fernandes</span>
-        </div>
-        <span class="book-label">A Reconstrução</span>
-      </div>
-
-      <!-- LIVRO III -->
-      <div class="book-wrap">
-        <img src="./CAPA%20A%20VIDA%20SEM%20RASCUNHO.webp"
-             alt="A Vida Sem Rascunho" class="book-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="book-ph" style="display:none">
-          <span class="book-num">Livro III</span>
-          <div class="book-div"></div>
-          <span class="book-title-t">A Vida Sem Rascunho</span>
-          <div class="book-div"></div>
-          <span class="book-by">André Fernandes</span>
-        </div>
         <span class="book-label">O Método</span>
       </div>
 
@@ -793,7 +383,7 @@
 <section class="trilogia" id="livros">
   <div class="trilogia-inner">
     <div class="trilogia-header fade-in">
-      <div class="section-label" style="justify-content:center;"><span style="display:block;width:30px;height:1px;background:var(--gold);"></span>Uma jornada em três movimentos</div>
+      <div class="section-label" style="justify-content:center;margin-bottom:1rem;"><span style="display:block;width:30px;height:1px;background:var(--gold);"></span>Uma jornada em três movimentos</div>
       <h2 class="section-title">Cada livro é uma camada.<br>Os três juntos são o sistema.</h2>
       <p class="section-body" style="max-width:640px;margin:0 auto;text-align:center;">
         A Trilogia da Transformação não é uma série temática — é uma arquitetura. Cada volume opera numa camada diferente da consciência, e os três juntos formam um sistema completo de percepção, reconstrução e decisão.
@@ -802,15 +392,14 @@
 
     <div class="livros-grid fade-in">
 
+      <!-- CARD I -->
       <div class="livro-card">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <span class="livro-tag">Livro I</span>
           <span class="livro-num">I</span>
         </div>
-        <div class="livro-img-wrap"><img src="./CAPA%20CRONICAS%20DE%20UM%20CAMPEAO.webp" alt="Crônicas de um Campeão" class="livro-cover"></div>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--gold2);text-align:center;line-height:1.3;">Crônicas de um Campeão</span>
-            <span style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">André Fernandes</span>
-          </div>
+        <div class="livro-img-wrap">
+          <img src="./CAPA%20CRONICAS%20DE%20UM%20CAMPEAO.webp" alt="Crônicas de um Campeão" class="livro-cover">
         </div>
         <div>
           <p class="livro-movimento">Ponto de partida · O Despertar do Ser</p>
@@ -818,24 +407,19 @@
         </div>
         <p class="livro-desc">A jornada que revela o que precisa ser enfrentado para que a transformação comece. A história que deu origem ao método — treze anos como sócio minoritário que se tornaram a espinha dorsal de tudo.</p>
         <div class="livro-itens">
-          <span>Incômodo</span>
-          <span>Confronto</span>
-          <span>Queda / Aprendizado</span>
-          <span>Consciência</span>
-          <span>Decisão</span>
+          <span>Incômodo</span><span>Confronto</span><span>Queda / Aprendizado</span><span>Consciência</span><span>Decisão</span>
         </div>
         <p class="livro-pergunta">"Quem você se torna durante a caminhada?"</p>
       </div>
 
+      <!-- CARD II -->
       <div class="livro-card" style="border-top:3px solid var(--gold);">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <span class="livro-tag" style="background:rgba(212,184,122,0.08);">Livro II</span>
           <span class="livro-num">II</span>
         </div>
-        <div class="livro-img-wrap"><img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp"" alt="A Mente É a Causa" class="livro-cover"></div>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:0.82rem;color:var(--gold2);text-align:center;line-height:1.3;">A Mente É a Causa.<br>A Vida É o Efeito.</span>
-            <span style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">André Fernandes</span>
-          </div>
+        <div class="livro-img-wrap">
+          <img src="./CAPA%20A%20MENTE%20É%20A%20CAUSA.webp" alt="A Mente É a Causa" class="livro-cover">
         </div>
         <div>
           <p class="livro-movimento">Reconstrução da causa · A Origem</p>
@@ -843,30 +427,19 @@
         </div>
         <p class="livro-desc">Antes de mudar o caminho, é preciso reconstruir aquilo que cria a vida. Este livro vai à raiz — como a mente constrói a realidade que você experimenta, e como reconstruir a causa para transformar o efeito.</p>
         <div class="livro-itens">
-          <span>Crenças</span>
-          <span>Pensamentos</span>
-          <span>Escolhas</span>
-          <span>Comportamentos</span>
-          <span>Resultados</span>
+          <span>Crenças</span><span>Pensamentos</span><span>Escolhas</span><span>Comportamentos</span><span>Resultados</span>
         </div>
         <p class="livro-pergunta">"De onde nasce a vida que você está construindo?"</p>
       </div>
 
+      <!-- CARD III -->
       <div class="livro-card">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <span class="livro-tag">Livro III</span>
           <span class="livro-num">III</span>
         </div>
         <div class="livro-img-wrap">
-          <img src="./CAPA%20A%20VIDA%20SEM%20RASCUNHO.webp""
-               alt="A Vida Sem Rascunho" class="livro-cover"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="livro-cover-ph" style="display:none">
-            <span style="font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;">O Método</span>
-            <div style="width:18px;height:1px;background:var(--gold);opacity:0.4;"></div>
-            <span style="font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--gold2);text-align:center;line-height:1.3;">A Vida Sem Rascunho</span>
-            <span style="font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);">André Fernandes</span>
-          </div>
+          <img src="./CAPA%20A%20VIDA%20SEM%20RASCUNHO.webp" alt="A Vida Sem Rascunho" class="livro-cover">
         </div>
         <div>
           <p class="livro-movimento">Sustentação pelo método · A Condução Consciente</p>
@@ -874,10 +447,7 @@
         </div>
         <p class="livro-desc">O método que transforma intenção em ação consistente e sustenta uma vida sem rascunho. Quatro camadas de consciência aplicadas à decisão real — o sistema que funciona antes dos outros sistemas.</p>
         <div class="livro-itens">
-          <span>Atenção</span>
-          <span>Visão</span>
-          <span>Resposta</span>
-          <span>Sistema</span>
+          <span>Atenção</span><span>Visão</span><span>Resposta</span><span>Sistema</span>
         </div>
         <p class="livro-pergunta">"Como você reconstrói conscientemente essa caminhada?"</p>
       </div>
