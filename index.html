@@ -257,11 +257,12 @@ nav {
 .livro-row:hover .livro-content-col { border-top-color: var(--gold); background: var(--dark3); }
 .livro-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem; color: rgba(212,184,122,0.15); font-weight: 300; line-height: 1;
+  font-size: 5rem; color: rgba(212,184,122,0.6); font-weight: 300; line-height: 1;
   position: absolute; top: 1.5rem; right: 2rem;
-  transition: color 0.4s;
+  transition: color 0.4s, text-shadow 0.4s;
+  text-shadow: 0 0 40px rgba(212,184,122,0.25);
 }
-.livro-row:hover .livro-num { color: rgba(212,184,122,0.45); }
+.livro-row:hover .livro-num { color: rgba(212,184,122,0.9); text-shadow: 0 0 60px rgba(212,184,122,0.45); }
 .livro-tag {
   display: inline-block; font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--gold); border: 1px solid var(--border); padding: 0.25rem 0.8rem;
